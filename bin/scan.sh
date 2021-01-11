@@ -3,11 +3,11 @@
 export MBLAZE_PAGER="less +G"
 
 by_date() {
-    mlist -t $FOLDER | msort -d | mseq -Sf | mscan
+    mlist -t `readlink "$FOLDER"` | msort -d | mseq -Sf | mscan
 }
 
 by_thread() {
-    mlist -t $FOLDER | mthread | mseq -Sf | mscan
+    mlist -t `readlink "$FOLDER"` | mthread | mseq -Sf | mscan
 }
 
 if [ $# -eq 0 ]; then
