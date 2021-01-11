@@ -1,0 +1,29 @@
+#!/bin/bash
+
+export INBOX=${HOME}/.maildir
+export FOLDER=${MBLAZE:-$HOME/.mblaze}/folder
+export FOLDERS=${MBLAZE:-$HOME/.mblaze}/folders
+export MHBLAZE_BIN=${HOME}/mhblaze/bin
+
+export MCOLOR_FROM=17
+export MCOLOR_HEADER=17
+export MCOLOR_QUOTE=52
+export MCOLOR_QQUOTE=22
+export MCOLOR_QQQUOTE=26
+export MCOLOR_SEP=240
+export MCOLOR_FOOTER=240
+export MCOLOR_SIG=240
+
+alias folder=${MHBLAZE_BIN}/folder.sh
+alias folders=${MHBLAZE_BIN}/folders.sh
+alias scan=${MHBLAZE_BIN}/scan.sh
+alias show=${MHBLAZE_BIN}/show.sh
+
+alias in='scan .'
+
+_folders() {
+    COMPREPLY=( $(compgen -W "`cat ${FOLDERS}`" "${COMP_WORDS[COMP_CWORD]}" ) )
+}
+
+complete -F _folders folder scan
+
