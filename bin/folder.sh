@@ -31,16 +31,6 @@ blaze_folder() {
     readlink $FOLDER
 }
 
-blaze_folders() {
-    mdirs ${INBOX} | cut -c $(( ${#INBOX} + 2 ))- | grep -v ^$ | sort | tee ${FOLDERS}
-}
-
-basename $0 | grep -q ^folders
-if [ $? -eq 0 ]; then
-    blaze_folders
-    exit
-fi
-
 case "$1" in
     .|inbox|INBOX)
 	blaze_folder $INBOX

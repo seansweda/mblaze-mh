@@ -29,3 +29,6 @@ _folders() {
 
 complete -F _folders folder scan
 
+# build folder list
+folders -qr
+
