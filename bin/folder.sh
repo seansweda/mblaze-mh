@@ -28,7 +28,7 @@ blaze_folder() {
 	    return 1
 	fi
     fi
-    readlink $FOLDER
+    mlist -i `readlink $FOLDER`
 }
 
 case "$1" in
