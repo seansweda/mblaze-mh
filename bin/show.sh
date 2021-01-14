@@ -1,6 +1,27 @@
 #!/bin/bash
 
 flags=''
+d_headers=${MHBLAZE_BIN}/../headers.grep
+
+while getopts rhHd opt; do
+    case $opt in
+    r)	flags="-Hr"	# raw message
+	;;
+    h)	flags="-L"	# full headers
+	;;
+    H)	flags="-Hq"	# raw headers only
+	export MBLAZE_NOCOLOR=no
+	export MBLAZE_PAGER=cat
+	;;
+    d)	flags="-Hq"	# debug headers
+	export MBLAZE_NOCOLOR=no
+	export MBLAZE_PAGER="grep -f $d_headers"
+	;;
+    *)	echo "usage $0: [ -r | -h | -H ]"
+	exit 1
+    esac
+done
+shift $(( $OPTIND - 1 ))
 
 if [ $# -eq 0 ]; then
     mshow $flags . && mflag -vS . | mseq -Sf
