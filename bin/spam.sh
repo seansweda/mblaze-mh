@@ -7,12 +7,14 @@
 # -A: archive
 
 refile=''
-bogoflags="-vb"
+bogoflags="-bv"
 spam="${MHBLAZE_SPAM:-${INBOX}/.spam}"
 archive="${MHBLAZE_SPAM_ARCHIVE:-${HOME}/spamdir}"
 
-while getopts sSnNrA opt; do
+while getopts vsSnNrA opt; do
     case $opt in
+    v)	bogoflags+="v"	# increase verbosity
+	;;
     s)	bogoflags+="s"	# spam
 	;;
     S)	bogoflags+="S"	# undo spam
