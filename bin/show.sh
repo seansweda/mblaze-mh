@@ -1,4 +1,8 @@
 #!/bin/bash
+# -r: raw message
+# -h: full headers
+# -H: raw headers only
+# -d: debug headers only
 
 flags=''
 d_headers=${MHBLAZE_BIN}/../headers.grep

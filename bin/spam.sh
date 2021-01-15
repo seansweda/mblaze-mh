@@ -1,4 +1,10 @@
 #!/bin/bash
+# -s: spam
+# -S: undo spam
+# -n: notspam
+# -N: undo notspam
+# -r: refile to spam
+# -A: archive
 
 refile=''
 bogoflags="-vb"

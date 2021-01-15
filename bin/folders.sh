@@ -1,4 +1,8 @@
 #!/bin/bash
+# -q: quiet
+# -r: recurse (list all)
+# -u: unseen
+# -l: custom list
 
 l_folders=${MHBLAZE_BIN}/../folders
 
