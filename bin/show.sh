@@ -17,7 +17,7 @@ while getopts rhHd opt; do
 	export MBLAZE_NOCOLOR=no
 	export MBLAZE_PAGER=cat
 	;;
-    d)	flags="-Hq"	# debug headers
+    d)	flags="-Lq"	# debug headers
 	export MBLAZE_NOCOLOR=no
 	export MBLAZE_PAGER="grep -f $d_headers"
 	;;
