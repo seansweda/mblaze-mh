@@ -20,6 +20,7 @@ alias folder=${MHBLAZE_BIN}/folder.sh
 alias folders=${MHBLAZE_BIN}/folders.sh
 alias scan=${MHBLAZE_BIN}/scan.sh
 alias show=${MHBLAZE_BIN}/show.sh
+alias spam=${MHBLAZE_BIN}/spam.sh
 
 alias in='scan .'
 
