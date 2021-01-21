@@ -15,12 +15,15 @@ export MCOLOR_SEP=240
 export MCOLOR_FOOTER=240
 export MCOLOR_SIG=240
 
+export IMAP_OPTS="plugin/lazy_expunge=expunged:lazy_expunge_only_last_instance=yes"
+
 export MHBLAZE_BIN=${HOME}/mblaze-mh/bin
 alias folder=${MHBLAZE_BIN}/folder.sh
 alias folders=${MHBLAZE_BIN}/folders.sh
 alias scan=${MHBLAZE_BIN}/scan.sh
 alias show=${MHBLAZE_BIN}/show.sh
 alias spam=${MHBLAZE_BIN}/spam.sh
+alias expunge=${MHBLAZE_BIN}/expunge.py
 
 alias in='scan .'
 
