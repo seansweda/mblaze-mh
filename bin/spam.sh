@@ -7,7 +7,7 @@
 # -A: archive
 
 refile=''
-bogoflags="-bv"
+bogoflags="-b"
 spam="${MHBLAZE_SPAM:-${INBOX}/.spam}"
 archive="${MHBLAZE_SPAM_ARCHIVE:-${HOME}/spamdir}"
 
@@ -40,6 +40,13 @@ if [ $# -eq 0 ]; then
     exit 0
 fi
 
+# ensure at least one level of verbosity
+echo $bogoflags | grep -q 'v'
+if [ $? -ne 0 ]; then
+    bogoflags+="v"
+fi
+
+mflag -S $* >/dev/null
 mseq -f $* | bogofilter $bogoflags
 
 # print bogosity after classification
