@@ -1,1 +1,2 @@
 text/html: w3m -T text/html
+application/octet-stream: less
