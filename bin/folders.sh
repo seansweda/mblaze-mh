@@ -22,7 +22,7 @@ folders_unseen() {
 
 folders_trashed() {
     #mu find -f l flag:t | cut -d / -f 4- | sed -e 's/\/cur.*$//' | sort | uniq -c | awk '{ printf "%6s trashed%40s\n", $1, $2 }'
-    mu find -f l flag:t | cut -d / -f 4- | sed -e 's/\/cur.*$//' | sort | uniq -c | sed -e "s/`path_re .maildir`\$/.INBOX/" | sed -e "s/`path_re .maildir`\///" | awk '{ printf "%6s trashed %25s%s\n", $1, " ", $2 }'
+    mu find -f l flag:t 2>/dev/null | cut -d / -f 4- | sed -e 's/\/cur.*$//' | sort | uniq -c | sed -e "s/`path_re .maildir`\$/.INBOX/" | sed -e "s/`path_re .maildir`\///" | awk '{ printf "%6s trashed %25s%s\n", $1, " ", $2 }'
 }
 
 folders_list() {
