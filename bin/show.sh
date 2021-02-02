@@ -28,12 +28,12 @@ done
 shift $(( $OPTIND - 1 ))
 
 if [ $# -eq 0 ]; then
-    mshow $flags . && mflag -vS . | mseq -Sf
+    mshow $flags . && mflag -vS . | mseq -Sf >/dev/null
 elif [ "$1" = ".+" -o "$1" = "+" ]; then
-    mshow $flags .+ && mflag -vS . | mseq -Sf
+    mshow $flags .+ && mflag -vS . | mseq -Sf >/dev/null
 elif [ "$1" = ".-" -o "$1" = "-" ]; then
-    mshow $flags .- && mflag -vS . | mseq -Sf
+    mshow $flags .- && mflag -vS . | mseq -Sf >/dev/null
 else
-    mshow $flags $* && mflag -vS $* | mseq -Sf
+    mshow $flags $* && mflag -vS $* | mseq -Sf >/dev/null
 fi
 
