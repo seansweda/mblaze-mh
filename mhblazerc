@@ -25,6 +25,11 @@ alias show=${MHBLAZE_BIN}/show.sh
 alias spam=${MHBLAZE_BIN}/spam.sh
 alias expunge=${MHBLAZE_BIN}/expunge.py
 
+alias comp=mcom
+alias repl=mrep
+alias forw=mfwd
+alias dist=mbnc
+alias pick=mpick
 alias in='scan .'
 
 _folders() {
