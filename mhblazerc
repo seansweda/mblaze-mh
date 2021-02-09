@@ -21,6 +21,7 @@ export MHBLAZE_BIN=${HOME}/mblaze-mh/bin
 alias flag=${MHBLAZE_BIN}/flag.sh
 alias folder=${MHBLAZE_BIN}/folder.sh
 alias folders=${MHBLAZE_BIN}/folders.sh
+alias pick=${MHBLAZE_BIN}/pick.sh
 alias refile=${MHBLAZE_BIN}/refile.sh
 alias scan=${MHBLAZE_BIN}/scan.sh
 alias show=${MHBLAZE_BIN}/show.sh
@@ -31,7 +32,6 @@ alias comp=mcom
 alias repl=mrep
 alias forw=mfwd
 alias dist=mbnc
-alias pick=mpick
 alias rmm='flag -T $*'
 alias in='scan .'
 
