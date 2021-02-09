@@ -18,6 +18,7 @@ export MCOLOR_SIG=240
 export IMAP_OPTS="plugin/lazy_expunge=expunged:lazy_expunge_only_last_instance=yes"
 
 export MHBLAZE_BIN=${HOME}/mblaze-mh/bin
+alias flag=${MHBLAZE_BIN}/flag.sh
 alias folder=${MHBLAZE_BIN}/folder.sh
 alias folders=${MHBLAZE_BIN}/folders.sh
 alias refile=${MHBLAZE_BIN}/refile.sh
@@ -31,6 +32,7 @@ alias repl=mrep
 alias forw=mfwd
 alias dist=mbnc
 alias pick=mpick
+alias rmm='flag -T $*'
 alias in='scan .'
 
 _folders() {
