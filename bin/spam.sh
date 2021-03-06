@@ -36,7 +36,7 @@ shift $(( $OPTIND - 1 ))
 
 # no msgs, switch to spam folder
 if [ $# -eq 0 ]; then
-    ${MHBLAZE_BIN}/scan.sh $spam
+    ${MHBLAZE_BIN}/scan.sh -d $spam
     exit 0
 fi
 
@@ -47,15 +47,15 @@ if [ $? -ne 0 ]; then
 fi
 
 mflag -S $* >/dev/null
-mseq -f $* | bogofilter $bogoflags
+mseq -rf $* | bogofilter $bogoflags
 
 # print bogosity after classification
 echo $bogoflags | egrep -iq 'n|s'
 if [ $? -eq 0 ]; then
-    mseq -f $* | bogofilter -vb
+    mseq -rf $* | bogofilter -vb
 fi
 
 if [ ! -z $refile ]; then
-    mseq -f $* | mrefile $refile
+    mseq -rf $* | mrefile $refile
 fi
 
