@@ -1,6 +1,8 @@
 #!/bin/bash
 # -c|-k: keep copy
 
+source ${MHBLAZE_BIN}/help.sh
+
 myflags=''
 
 while getopts ckv opt; do

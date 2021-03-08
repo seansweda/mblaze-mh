@@ -3,6 +3,8 @@
 # -l: list filenames
 # -t: include trashed
 
+source ${MHBLAZE_BIN}/help.sh
+
 mu index --lazy-check --nocleanup -q
 folder=`readlink $FOLDER | sed -e "s_${INBOX}_/_"`
 folder="maildir:${folder}"

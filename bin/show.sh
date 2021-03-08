@@ -4,6 +4,8 @@
 # -H: raw headers only
 # -d: debug headers only
 
+source ${MHBLAZE_BIN}/help.sh
+
 flags=''
 d_headers=${MHBLAZE_BIN}/../headers.grep
 

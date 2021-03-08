@@ -6,6 +6,8 @@
 # -r: refile to spam
 # -A: archive
 
+source ${MHBLAZE_BIN}/help.sh
+
 refile=''
 bogoflags="-b"
 spam="${MHBLAZE_SPAM:-${INBOX}/.spam}"

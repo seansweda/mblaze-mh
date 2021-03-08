@@ -4,6 +4,8 @@
 # -t: only trashed
 # -u: only unseen
 
+source ${MHBLAZE_BIN}/help.sh
+
 export MBLAZE_PAGER="less +G"
 
 lflags="-"

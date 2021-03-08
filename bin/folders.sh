@@ -6,6 +6,8 @@
 # -T: trashed after re-index
 # -l: custom list
 
+source ${MHBLAZE_BIN}/help.sh
+
 FOLDER_LIST=${MHBLAZE_BIN}/../folders
 
 path_re() {

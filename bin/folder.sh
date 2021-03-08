@@ -1,5 +1,7 @@
 #!/bin/bash
 
+source ${MHBLAZE_BIN}/help.sh
+
 is_maildir() {
     if [ -d "$1" -a -d "$1"/cur ]; then
 	return 0

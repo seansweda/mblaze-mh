@@ -1,4 +1,9 @@
 #!/bin/bash
+# passes flags thru to mflag
+# DFPRST: mark
+# dfprst: unmark
+
+source ${MHBLAZE_BIN}/help.sh
 
 myflags='-v'
 
