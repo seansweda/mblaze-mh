@@ -1,4 +1,5 @@
 #!/bin/bash
+# -s: scan seq (not folder)
 # -d: sort by date
 # -f: only flagged
 # -t: only trashed
@@ -10,6 +11,7 @@ export MBLAZE_PAGER="less +G"
 
 lflags="-"
 sorted=by_thread
+list=mlist
 scanf="%c%u%r %-3n %10d %17f %t %2i%s"
 
 by_date() {
@@ -20,17 +22,19 @@ by_thread() {
     mthread | mseq -Sf | mscan -f "$scanf"
 }
 
-while getopts dftu opt; do
+while getopts dfstu opt; do
     case $opt in
     d)	sorted=by_date
 	;;
     f)	lflags+="F"	    # flagged
 	;;
+    s)	list=mseq
+	;;
     t)	lflags+="T"	    # trashed
 	;;
     u)	lflags+="s"	    # unseen
 	;;
-    *)	echo "usage $0: [ -dftu ]"
+    *)	echo "usage $0: [ -dfstu ]"
 	exit 1
     esac
 done
@@ -46,5 +50,9 @@ if [ $? -ne 0 ]; then
     lflags+="t"
 fi
 
-mlist $lflags `readlink "$FOLDER"` | $sorted
+if [ "$list" = "mseq" ]; then
+    mseq | $sorted
+else
+    mlist $lflags `readlink "$FOLDER"` | $sorted
+fi
 
