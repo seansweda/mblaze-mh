@@ -34,6 +34,7 @@ alias forw=mfwd
 alias dist=mbnc
 alias rmm='flag -T $*'
 alias in='scan .'
+alias dis='show -b $*'
 
 _folders() {
     COMPREPLY=( $(compgen -W "`cat ${FOLDERS}`" "${COMP_WORDS[COMP_CWORD]}" ) )

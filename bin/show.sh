@@ -1,4 +1,5 @@
 #!/bin/bash
+# -b: body only
 # -r: raw message
 # -h: full headers
 # -H: raw headers only
@@ -9,17 +10,19 @@ source ${MHBLAZE_BIN}/help.sh
 flags=''
 d_headers=${MHBLAZE_BIN}/../headers.grep
 
-while getopts rhHd opt; do
+while getopts brhHd opt; do
     case $opt in
-    r)	flags="-Hr"	# raw message
+    b)	flags="-N -h ''"	# decoded body only
 	;;
-    h)	flags="-L"	# full headers
+    r)	flags="-Hr"		# raw message
 	;;
-    H)	flags="-Hq"	# raw headers only
+    h)	flags="-L"		# full headers
+	;;
+    H)	flags="-Hq"		# raw headers only
 	export MBLAZE_NOCOLOR=no
 	export MBLAZE_PAGER=cat
 	;;
-    d)	flags="-Lq"	# debug headers
+    d)	flags="-Lq"		# debug headers
 	export MBLAZE_NOCOLOR=no
 	export MBLAZE_PAGER="grep -f $d_headers"
 	;;
