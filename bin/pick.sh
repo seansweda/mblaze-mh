@@ -6,8 +6,8 @@
 source ${MHBLAZE_BIN}/help.sh
 
 mu index --lazy-check --nocleanup -q
-folder=`readlink $FOLDER | sed -e "s_${INBOX}_/_"`
-folder="maildir:${folder}"
+folder=`readlink $FOLDER | sed -e "s_${INBOX}__"`
+folder="maildir:${folder:-/}"
 
 list=''
 trashed="not flag:trashed"
@@ -22,7 +22,7 @@ while getopts Alt opt; do
 	;;
     t)	trashed=""
 	;;
-    *)	echo "usage $0: [ -DFPRST | -dfprst ] <msg>"
+    *)	echo "usage $0: [ -Alt ] < mu-query >"
 	exit 1
     esac
 done
