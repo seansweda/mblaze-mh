@@ -46,7 +46,8 @@ while getopts qlrutT opt; do
     T)	trashed=yes
 	mu index --lazy-check --nocleanup -q
 	;;
-    *)	echo "usage $0: [ -r | -ut ] [ -l <folder> ... ]"
+    *)	echo "usage $0: [ flags ] [ -l <folder> ... ]"
+	help
 	exit 1
     esac
 done

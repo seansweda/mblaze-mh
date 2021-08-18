@@ -22,7 +22,8 @@ while getopts Alt opt; do
 	;;
     t)	trashed=""
 	;;
-    *)	echo "usage $0: [ -Alt ] < mu-query >"
+    *)	echo "usage $0: [ flags ] < mu-query >"
+	help
 	exit 1
     esac
 done

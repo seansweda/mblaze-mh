@@ -30,7 +30,8 @@ while getopts vsSnNrA opt; do
 	;;
     A)	refile=${archive}   # archive
 	;;
-    *)	echo "usage $0: -sSnNrA <msgs>"
+    *)	echo "usage $0: [ flags ] <msgs>"
+	help
 	exit 1
     esac
 done

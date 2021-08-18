@@ -11,14 +11,16 @@ while getopts DFPRSTdfprst opt; do
     case $opt in
     D|F|P|R|S|T|d|f|p|r|s|t)  myflags+="$opt"
 	;;
-    *)	echo "usage $0: [ -DFPRST | -dfprst ] <msg>"
+    *)	echo "usage $0: [ flags ] <msg>"
+	help
 	exit 1
     esac
 done
 shift $(( $OPTIND - 1 ))
 
 if [ $# -eq 0 ]; then
-    echo "usage $0: [ -DFPRST | -dfprst ] <msg>"
+    echo "usage $0: [ flags ] <msg>"
+    help
     exit 1
 fi
 

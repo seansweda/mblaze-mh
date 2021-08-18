@@ -26,7 +26,8 @@ while getopts brhHd opt; do
 	export MBLAZE_NOCOLOR=no
 	export MBLAZE_PAGER="grep -f $d_headers"
 	;;
-    *)	echo "usage $0: [ -r | -h | -H ]"
+    *)	echo "usage $0: [ flags ]"
+	help
 	exit 1
     esac
 done

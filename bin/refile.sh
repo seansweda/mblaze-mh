@@ -1,5 +1,6 @@
 #!/bin/bash
-# -c|-k: keep copy
+# -k: keep copy (also -c)
+# -v: print filenames
 
 source ${MHBLAZE_BIN}/help.sh
 
@@ -11,14 +12,16 @@ while getopts ckv opt; do
 	;;
     v)	myflags+="v"
 	;;
-    *)	echo "usage $0: [ -kv ] <folder>"
+    *)	echo "usage $0: [ flags ] <folder>"
+	help
 	exit 1
     esac
 done
 shift $(( $OPTIND - 1 ))
 
 if [ $# -eq 0 ]; then
-    echo "usage $0: [ -kv ] <folder>"
+    echo "usage $0: [ flags ] <folder>"
+    help
     exit 1
 fi
 

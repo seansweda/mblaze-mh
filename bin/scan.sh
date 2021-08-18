@@ -40,7 +40,8 @@ while getopts FSdfstu opt; do
 	;;
     u)	lflags+="s"	    # unseen
 	;;
-    *)	echo "usage $0: [ -dfstu ]"
+    *)	echo "usage $0: [ flags ]"
+	help
 	exit 1
     esac
 done
