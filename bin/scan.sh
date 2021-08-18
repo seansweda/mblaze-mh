@@ -4,6 +4,8 @@
 # -f: only flagged
 # -t: only trashed
 # -u: only unseen
+# -F: show entire From
+# -S: show message size
 
 source ${MHBLAZE_BIN}/help.sh
 
@@ -22,8 +24,12 @@ by_thread() {
     mthread | mseq -Sf | mscan -f "$scanf"
 }
 
-while getopts dfstu opt; do
+while getopts FSdfstu opt; do
     case $opt in
+    F)  scanf="%c%u%r %-3n %10d %f"
+	;;
+    S)  scanf="%c%u%r %-3n %10d %4b %17f %t %2i%s"
+	;;
     d)	sorted=by_date
 	;;
     f)	lflags+="F"	    # flagged
@@ -51,7 +57,7 @@ if [ $? -ne 0 ]; then
 fi
 
 if [ "$list" = "mseq" ]; then
-    mseq | $sorted
+    mseq $* | $sorted
 else
     mlist $lflags `readlink "$FOLDER"` | $sorted
 fi
