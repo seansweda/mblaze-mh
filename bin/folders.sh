@@ -3,7 +3,7 @@
 # -r: recurse (list all)
 # -u: unseen
 # -t: trashed
-# -T: trashed after re-index
+# -i: re-index before listing
 # -l: custom list
 
 source ${MHBLAZE_BIN}/help.sh
@@ -31,7 +31,7 @@ folders_list() {
     mlist -i $* | sed -e "s/`path_re ${INBOX}`\$/.INBOX/" | sed -e "s/`path_re ${INBOX}`\///"
 }
 
-while getopts qlrutT opt; do
+while getopts qlruti opt; do
     case $opt in
     q)	exec 1>/dev/null
 	;;
@@ -43,8 +43,7 @@ while getopts qlrutT opt; do
 	;;
     t)	trashed=yes
 	;;
-    T)	trashed=yes
-	mu index --lazy-check --nocleanup -q
+    i)	mu index -q
 	;;
     *)	echo "usage $0: [ flags ] [ -l <folder> ... ]"
 	help
