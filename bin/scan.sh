@@ -6,6 +6,7 @@
 # -u: only unseen
 # -F: show entire From
 # -S: show message size
+# -l: list filenames only
 
 source ${MHBLAZE_BIN}/help.sh
 
@@ -24,7 +25,7 @@ by_thread() {
     mthread | mseq -Sf | mscan -f "$scanf"
 }
 
-while getopts FSdfstu opt; do
+while getopts FSdflstu opt; do
     case $opt in
     F)  scanf="%c%u%r %-3n %10d %f"
 	;;
@@ -33,6 +34,8 @@ while getopts FSdfstu opt; do
     d)	sorted=by_date
 	;;
     f)	lflags+="F"	    # flagged
+	;;
+    l)	sorted=tee
 	;;
     s)	list=mseq
 	;;
