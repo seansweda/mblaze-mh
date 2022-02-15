@@ -4,13 +4,15 @@
 # -h: full headers
 # -H: raw headers only
 # -d: debug headers only
+# -a: show text/html first
+# -A: passthru to mshow (select mimetype)
 
 source ${MHBLAZE_BIN}/help.sh
 
 flags=''
 d_headers=${MHBLAZE_BIN}/../headers.grep
 
-while getopts brhHd opt; do
+while getopts brhHdaA: opt; do
     case $opt in
     b)	flags="-N -h ''"	# decoded body only
 	;;
@@ -25,6 +27,10 @@ while getopts brhHd opt; do
     d)	flags="-Lq"		# debug headers
 	export MBLAZE_NOCOLOR=no
 	export MBLAZE_PAGER="grep -f $d_headers"
+	;;
+    a)	flags+=" -A text/html:text/plain"   # prefer html
+	;;
+    A)	flags+=" -A ${OPTARG}"		    # passthru to mshow
 	;;
     *)	echo "usage $0: [ flags ]"
 	help
