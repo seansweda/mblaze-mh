@@ -29,7 +29,7 @@ if [ ${#myflags} -gt 0 ]; then
     myflags="-${myflags}"
 fi
 
-echo "${@:$#}" | egrep -q '^(\/|\~)'
+echo "${@:$#}" | egrep -q '^(/|~)'
 if [ $? -ne 0 ]; then
     mrefile ${myflags} ${@:1:$(($#-1))} ${INBOX}/${@:$#}
 else
