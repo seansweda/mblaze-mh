@@ -1,4 +1,7 @@
-Received
-X-Greylist
-X-Bogosity
-X-Envelope-From
+^Received
+^Authentication-Results
+^X-Auth-Result
+^X-Greylist
+^X-Bogosity
+^X-Envelope-From
+^From
