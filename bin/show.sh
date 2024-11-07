@@ -1,5 +1,6 @@
 #!/bin/bash
 # -b: body only
+# -s: subject/body only
 # -r: raw message
 # -h: full headers
 # -H: raw headers only
@@ -12,9 +13,11 @@ source ${MHBLAZE_BIN}/help.sh
 flags=''
 d_headers=${MHBLAZE_BIN}/../headers.grep
 
-while getopts brhHdaA: opt; do
+while getopts bsrhHdaA: opt; do
     case $opt in
     b)	flags="-N -h ''"	# decoded body only
+	;;
+    s)	flags="-N -h Subject"	# subject + decoded body only
 	;;
     r)	flags="-Hr"		# raw message
 	;;
